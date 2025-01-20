@@ -1,0 +1,49 @@
+﻿@model Category
+
+<div class="container-fluid px-4">
+    <h2 class="mt-2 text-center text-uppercase fw-bold update-category-heading">
+        Update / Edit Category
+    </h2>
+</div>
+
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <form method="post" enctype="multipart/form-data" class="add-product-form shadow p-4 bg-white rounded">
+
+            <!-- Hidden Category ID -->
+            <input type="hidden" name="category_id" value="@Model.category_id" />
+
+            <!-- Category Name -->
+            <div class="update-category-form-group mb-3">
+                <label for="category_name" class="update-category-label fw-bold">Category Name</label>
+                <input class="update-category-input w-100"
+                       type="text"
+                       id="category_name"
+                       name="category_name"
+                       value="@Model.category_name"
+                       placeholder="Enter Category Name"
+                       required />
+            </div>
+           
+            <input type="hidden" name="category_id" value="@Model.category_id" />
+            <input type="hidden" name="category_name" value="@Model.category_name" />
+            <input type="hidden" name="product_Description" value="@Model.Thumbnail_Image" />
+            <div class="form-group text-center mb-3">
+                <img src="@Url.Content("~/CategoryUploads/" + Model.Image)" asp-append-version="true" class="product-image-preview" />
+            </div>
+            <!-- Image Upload -->
+            <div class="update-category-form-group mb-3">
+                <label for="Image" class="update-category-label fw-bold">Update Category Image</label>
+                <input class="form-control" type="file" id="Image" name="Image" />
+            </div>
+
+            <!-- Submit and Cancel Buttons -->
+            <div class="form-group text-center mt-4 d-flex justify-content-center gap-3">
+                <button type="button" class="btn btn-secondary btn-sm cancel-button" onclick="window.history.back()">
+                    Cancel
+                </button>
+                <input type="submit" value="Update Category" class="btn btn-primary btn-sm update-category-button" />
+            </div>
+        </form>
+    </div>
+</div>

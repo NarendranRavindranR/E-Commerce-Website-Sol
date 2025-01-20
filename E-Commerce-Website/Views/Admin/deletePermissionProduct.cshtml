@@ -1,0 +1,21 @@
+﻿<div class="container-fluid px-4">
+    <h2 class="custom-delete-heading text-center">Confirm Product Deletion</h2>
+</div>
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <ul class="custom-delete-list">
+            <li>
+                <span class="custom-delete-label">Product ID:</span> @Model.product_id
+            </li>
+            <li>
+                <span class="custom-delete-label">Product Name:</span> @Model.product_name
+            </li>
+        </ul>
+        <div class="text-center mt-4">
+            <button class="custom-delete-cancel-btn" onclick="window.history.back()">Cancel</button>
+            <a href="@Url.Action("deleteProduct", "Admin", new { id = Model.product_id })" class="custom-delete-btn">Delete</a>
+        </div>
+    </div>
+    <div class="col-md-2"></div>
+</div>

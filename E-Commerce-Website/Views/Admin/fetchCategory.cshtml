@@ -1,0 +1,44 @@
+﻿@model List<Category>
+<div class="container-fluid px-4">
+    <h2 class="mt-2 text-center text-uppercase fw-bold" style="letter-spacing:2px">All Category</h2>
+</div>
+
+<div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+        <div class="col-md-12 text-end mb-3">
+            <a href="@Url.Action("addCategory","Admin")" data-bs-toggle="tooltip" title="Add New Category">
+                <i class="fas fa-plus-circle me-2 fa-3x custom-a"></i>
+            </a>
+        </div>
+        <table class="table table-striped table-bordered text-center">
+            <thead class="table-dark">
+                <tr>
+                    <th>Category Id</th>
+                    <th>Category Name</th>
+                    <th>Category Image</th>
+                    <th>Category Thumbnail Image</th>
+                    <th>Others</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var cat in Model)
+                {
+                    <tr>
+                        <td>@cat.category_id</td>
+                        <td>@cat.category_name</td>
+                        <td> <img src="@("~/CategoryUploads/"+cat.Image)" asp-append-version="true" width="40px" height="40px" /></td>
+                        <td> <img src="@("~/CategoryUploadsThumbnails/"+cat.Thumbnail_Image)" asp-append-version="true" width="40px" height="40px" /></td>
+                        <td>
+                            <div class="btn-group" role="group">
+                                <a href="@Url.Action("updateCategory","Admin",new{id=cat.category_id})" class="btn btn-warning" data-bs-toggle="tooltip" title="Edit Category"><i class="fas fa-edit"></i></a>
+                                <a href="@Url.Action("deletePermissionCategory","Admin",new{id=cat.category_id})" class="btn btn-danger" data-bs-toggle="tooltip" title="Delete Category"><i class="fas fa-trash"></i></a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-1"></div>
+</div>

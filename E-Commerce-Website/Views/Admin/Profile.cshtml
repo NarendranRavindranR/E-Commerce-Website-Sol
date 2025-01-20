@@ -1,0 +1,29 @@
+﻿@model List<Admin> 
+    <div class="container-fluid px-4">
+        <h2 class="mt-2 text-center text-uppercase fw-bold" style="letter-spacing:2px">My Profile</h2>
+    </div>
+
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+            <form method="post" enctype="multipart/form-data">
+                <input type="hidden" name="admin_Id" value="@Model[0].admin_Id"/>
+                <input class="form-control my-3" type="text" placeholder="Enter your Name" name="admin_Name" value="@Model[0].admin_Name"/>
+                <input class="form-control my-3" type="text" placeholder="Enter your Email" name="admin_Email" value="@Model[0].admin_Email"/>
+                <input class="form-control my-3" type="password" placeholder="Enter your Password" name="admin_Password" value="@Model[0].admin_Password" />
+                <input type="hidden" name="admin_image" value="@Model[0].admin_image" />
+                <input class="form-control my-3 btn btn-primary" type="submit" value="Update Profile" />
+            </form>
+
+            <form method="post" asp-action="ChangeProfileImage" enctype="multipart/form-data">
+                    <input type="hidden" name="admin_Id" value="@Model[0].admin_Id" />
+                    <input type="hidden" name="admin_Name" value="@Model[0].admin_Name" />
+                    <input type="hidden" name="admin_Email" value="@Model[0].admin_Email" />
+                    <input type="hidden" name="admin_Password" value="@Model[0].admin_Password" />
+                <input type="file" name="admin_image" class="form-control my-3" />
+                <img src="@Url.Content("~/admin_image/"+Model[0].admin_image)" asp-append-version="true" width="250px" height="250px"/>
+                <input type="submit" value="Change Profile" class="form-control my-3 btn btn-primary" />
+            </form>
+        </div>
+        <div class="col-2"></div>
+    </div>

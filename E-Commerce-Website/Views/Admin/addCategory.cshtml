@@ -1,0 +1,40 @@
+﻿<div class="container-fluid px-4">
+    <h2 class="mt-2 text-center text-uppercase fw-bold add-category-heading">
+        Add New Category
+    </h2>
+</div>
+
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <form method="post" enctype="multipart/form-data" class="add-product-form shadow p-4 bg-white rounded">
+
+            <!-- Category Name -->
+            <div class="add-category-form-group mb-3">
+                <label for="category_name" class="add-category-label fw-bold">Category Name</label>
+                <input class="add-category-input w-100"
+                       type="text"
+                       id="category_name"
+                       name="category_name"
+                       placeholder="Enter Category Name"
+                       required />
+            </div>
+            <!-- Image Upload -->
+            <div class="add-category-form-group mb-3">
+                <label for="Image" class="add-category-label fw-bold">Upload Category Image</label>
+                <input class="form-control" type="file" id="Image" name="Image" accept="image/*" required />
+            </div>
+
+            <!-- Submit and Cancel Buttons -->
+            <div class="form-group text-center mt-4">
+                <button type="button"
+                        class="btn btn-secondary btn-sm cancel-button me-2"
+                        onclick="window.history.back()">
+                    Cancel
+                </button>
+                <input type="submit"
+                       value="Submit"
+                       class="btn btn-primary btn-sm add-category-button" />
+            </div>
+        </form>
+    </div>
+</div>

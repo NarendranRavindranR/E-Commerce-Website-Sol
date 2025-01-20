@@ -1,0 +1,128 @@
+﻿@model Customer
+
+<div class="container-fluid px-4">
+    <h2 class="mt-2 text-center text-uppercase fw-bold update-customer-heading">
+        Update / Edit Customer
+    </h2>
+</div>
+
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <form method="post" enctype="multipart/form-data" class="update-customer-form shadow p-4 bg-white rounded">
+
+            <!-- Hidden Customer ID -->
+            <input type="hidden" name="customer_id" value="@Model.customer_id" />
+
+            <!-- Customer Name -->
+            <div class="update-customer-form-group mb-3">
+                <label for="customer_name" class="update-customer-label fw-bold">Customer Name</label>
+                <input class="update-customer-input w-100"
+                       type="text"
+                       id="customer_name"
+                       name="customer_name"
+                       value="@Model.customer_name"
+                       placeholder="Enter Customer Name"
+                       required />
+            </div>
+
+            <!-- Customer Email -->
+            <div class="update-customer-form-group mb-3">
+                <label for="customer_email" class="update-customer-label fw-bold">Customer Email</label>
+                <input class="update-customer-input w-100"
+                       type="email"
+                       id="customer_email"
+                       name="customer_email"
+                       value="@Model.customer_email"
+                       placeholder="Enter Customer Email"
+                       required />
+            </div>
+
+            <!-- Customer Phone -->
+            <div class="update-customer-form-group mb-3">
+                <label for="customer_phone" class="update-customer-label fw-bold">Customer Phone</label>
+                <input class="update-customer-input w-100"
+                       type="text"
+                       id="customer_phone"
+                       name="customer_phone"
+                       value="@Model.customer_phone"
+                       placeholder="Enter Customer Phone"
+                       required />
+            </div>
+
+            <!-- Customer Password -->
+            <div class="update-customer-form-group mb-3">
+                <label for="customer_password" class="update-customer-label fw-bold">Customer Password</label>
+                <input class="update-customer-input w-100"
+                       type="password"
+                       id="customer_password"
+                       name="customer_password"
+                       value="@Model.customer_password"
+                       placeholder="Enter Customer Password"
+                       required />
+            </div>
+
+            <!-- Customer Gender -->
+            <div class="update-customer-form-group mb-3">
+                <label for="customer_gender" class="update-customer-label fw-bold">Customer Gender</label>
+                <input class="update-customer-input w-100"
+                       type="text"
+                       id="customer_gender"
+                       name="customer_gender"
+                       value="@Model.customer_gender"
+                       placeholder="Enter Customer Gender"
+                       required />
+            </div>
+
+            <!-- Customer Country -->
+            <div class="update-customer-form-group mb-3">
+                <label for="customer_country" class="update-customer-label fw-bold">Customer Country</label>
+                <input class="update-customer-input w-100"
+                       type="text"
+                       id="customer_country"
+                       name="customer_country"
+                       value="@Model.customer_country"
+                       placeholder="Enter Customer Country"
+                       required />
+            </div>
+
+            <!-- Customer City -->
+            <div class="update-customer-form-group mb-3">
+                <label for="customer_city" class="update-customer-label fw-bold">Customer City</label>
+                <input class="update-customer-input w-100"
+                       type="text"
+                       id="customer_city"
+                       name="customer_city"
+                       value="@Model.customer_city"
+                       placeholder="Enter Customer City"
+                       required />
+            </div>
+
+            <!-- Customer Address -->
+            <div class="update-customer-form-group mb-3">
+                <label for="customer_address" class="update-customer-label fw-bold">Customer Address</label>
+                <input class="update-customer-input w-100"
+                       type="text"
+                       id="customer_address"
+                       name="customer_address"
+                       value="@Model.customer_address"
+                       placeholder="Enter Customer Address"
+                       required />
+            </div>
+
+            <!-- Customer Image -->
+            <div class="update-customer-form-group mb-3">
+                <label for="customer_image" class="update-customer-label fw-bold">Customer Image</label>
+                <input type="file" name="customer_image" class="update-customer-input w-100" />
+                <img src="@Url.Content("~/customer_image/" + Model.customer_image)" asp-append-version="true" width="250px" height="250px" />
+            </div>
+
+            <!-- Submit and Cancel Buttons -->
+            <div class="form-group text-center mt-4 d-flex justify-content-center gap-3">
+                <button type="button" class="btn btn-secondary btn-sm cancel-button" onclick="window.history.back()">
+                    Cancel
+                </button>
+                <input type="submit" value="Update Customer" class="btn btn-primary btn-sm update-customer-button" />
+            </div>
+        </form>
+    </div>
+</div>

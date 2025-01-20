@@ -1,0 +1,45 @@
+﻿@model Customer
+<div class="container-fluid px-4">
+    <h2 class="mt-2 text-center text-uppercase fw-bold" style="letter-spacing:2px">Customer Details</h2>
+</div>
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <img src="@Url.Content("~/customer_image/" + Model.customer_image)"
+             alt="Customer Image"
+             asp-append-version="true"
+             height="250px"
+             width="250px" />
+
+        
+        <ul class="list-group">
+            <li class="list-group-item">
+                <span class="text-dark fw-bold">Customer Name:</span> @Model.customer_name
+            </li>
+            <li class="list-group-item">
+                <span class="text-dark fw-bold">Customer Email:</span> @Model.customer_email
+            </li>
+            <li class="list-group-item">
+                <span class="text-dark fw-bold">Customer Phone:</span> @Model.customer_phone
+            </li>
+            <li class="list-group-item">
+                <span class="text-dark fw-bold">Customer Password:</span> @Model.customer_password
+            </li>
+            <li class="list-group-item">
+                <span class="text-dark fw-bold">Customer Gender:</span> @Model.customer_gender
+            </li>
+            <li class="list-group-item">
+                <span class="text-dark fw-bold">Customer Country:</span> @Model.customer_country
+            </li>
+            <li class="list-group-item">
+                <span class="text-dark fw-bold">Customer City:</span> @Model.customer_city
+            </li>
+            <li class="list-group-item">
+                <span class="text-dark fw-bold">Customer Address:</span> @Model.customer_address
+            </li>
+        </ul>
+
+    </div>
+    <div class="col-md-2"></div>
+</div>
+

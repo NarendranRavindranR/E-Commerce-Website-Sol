@@ -1,0 +1,39 @@
+﻿<div class="container-fluid px-4">
+    <h2 class="custom-delete-heading text-center">Confirm Customer Deletion</h2>
+</div>
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <ul class="custom-delete-list">
+            <li>
+                <span class="custom-delete-label">Customer Name:</span> @Model.customer_name
+            </li>
+            <li>
+                <span class="custom-delete-label">Customer Email:</span> @Model.customer_email
+            </li>
+            <li>
+                <span class="custom-delete-label">Customer Phone:</span> @Model.customer_phone
+            </li>
+            <li>
+                <span class="custom-delete-label">Customer Password:</span> @Model.customer_password
+            </li>
+            <li>
+                <span class="custom-delete-label">Customer Gender:</span> @Model.customer_gender
+            </li>
+            <li>
+                <span class="custom-delete-label">Customer Country:</span> @Model.customer_country
+            </li>
+            <li>
+                <span class="custom-delete-label">Customer City:</span> @Model.customer_city
+            </li>
+            <li>
+                <span class="custom-delete-label">Customer Address:</span> @Model.customer_address
+            </li>
+        </ul>
+        <div class="text-center mt-4">
+            <button class="custom-delete-cancel-btn" onclick="window.history.back()">Cancel</button>
+            <a href="@Url.Action("deleteCustomer", "Admin", new { id = Model.customer_id })" class="custom-delete-btn">Delete</a>
+        </div>
+    </div>
+    <div class="col-md-2"></div>
+</div>

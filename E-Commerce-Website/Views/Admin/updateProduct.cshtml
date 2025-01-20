@@ -1,0 +1,89 @@
+﻿@model Product
+
+<div class="container-fluid px-4">
+    <h2 class="mt-2 text-center text-uppercase fw-bold update-product-heading">
+        Update/Edit Product
+    </h2>
+</div>
+
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <form method="post" enctype="multipart/form-data" class="update-product-form shadow p-4 bg-white rounded">
+
+            <!-- Hidden Product ID -->
+            <input type="hidden" name="product_id" value="@Model.product_id" />
+
+            <!-- Product Name -->
+            <div class="update-product-form-group mb-3">
+                <label for="product_name" class="update-product-label fw-bold">Product Name</label>
+                <input class="update-product-input w-100"
+                       type="text"
+                       id="product_name"
+                       name="product_name"
+                       value="@Model.product_name"
+                       placeholder="Enter Product Name"
+                       required />
+            </div>
+
+            <!-- Product Price -->
+            <div class="update-product-form-group mb-3">
+                <label for="product_price" class="update-product-label fw-bold">Product Price</label>
+                <input class="update-product-input w-100"
+                       type="text"
+                       id="product_price"
+                       name="product_price"
+                       value="@Model.product_price"
+                       placeholder="Enter Product Price"
+                       required />
+            </div>
+
+            <!-- Product Description -->
+            <div class="update-product-form-group mb-3">
+                <label for="product_description" class="update-product-label fw-bold">Product Description</label>
+                <textarea class="update-product-input w-100"
+                          id="product_description"
+                          name="product_Description"
+                          rows="4"
+                          placeholder="Enter Product Description"
+                          style="resize: none;"
+                          required>@Model.product_Description</textarea>
+            </div>
+
+            <!-- Category Dropdown -->
+            <div class="update-product-form-group mb-3">
+                <label for="product_category" class="update-product-label fw-bold">Product Category</label>
+                @Html.Partial("CategoryDropdown", ViewData["categories"])
+            </div>
+
+            <!-- Hidden Product Image -->
+            <input type="hidden" name="product_Image" value="@Model.product_Image" />
+
+            <!-- Submit and Cancel Buttons -->
+            <div class="form-group text-center mt-4 d-flex justify-content-center gap-3">
+                <button type="button" class="btn btn-secondary btn-sm cancel-button" onclick="window.history.back()">
+                    Cancel
+                </button>
+                <input type="submit" value="Update Product" class="btn btn-primary btn-sm update-product-button" />
+            </div>
+        </form>
+
+        <!-- Change Product Image Form -->
+        <form method="post" asp-action="ChangeProductImage" enctype="multipart/form-data" class="change-product-image-form mt-4 shadow p-4 bg-white rounded">
+            <input type="hidden" name="product_id" value="@Model.product_id" />
+            <input type="hidden" name="product_name" value="@Model.product_name" />
+            <input type="hidden" name="product_price" value="@Model.product_price" />
+            <input type="hidden" name="product_Description" value="@Model.product_Description" />
+            <input type="hidden" name="cat_id" value="@Model.cat_id" class="form-control my-3" />
+            <div class="form-group text-center mb-3">
+                <img src="@Url.Content("~/product_images/" + Model.product_Image)" asp-append-version="true" class="product-image-preview" />
+            </div>
+            <div class="form-group mb-3">
+                <label for="product_Image" class="update-product-label fw-bold">Change Product Image</label>
+                <input type="file" name="product_Image" class="update-product-input w-100" />
+            </div>
+            <div class="form-group text-center">
+                <input type="submit" value="Change Product Image" class="btn btn-primary btn-sm update-product-button" />
+            </div>
+        </form>
+    </div>
+</div>
