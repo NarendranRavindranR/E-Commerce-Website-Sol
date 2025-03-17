@@ -25,7 +25,19 @@ namespace E_Commerce_Website.Models
                 .HasForeignKey(p => p.cat_id) // Foreign key in Product
                 .OnDelete(DeleteBehavior.Cascade); // Optional: Cascade delete
 
+            // Configuring precision and scale for the product_price property
+            modelBuilder.Entity<Product>()
+                .Property(p => p.product_price)
+                .HasColumnType("decimal(18,2)"); // Set precision and scale here
+
+            // Configuring precision and scale for the Rating property
+            modelBuilder.Entity<Product>()
+                .Property(p => p.Rating)
+                .HasColumnType("decimal(3,2)"); // Adjust precision and scale as needed
+
             base.OnModelCreating(modelBuilder);
         }
+
     }
+
 }

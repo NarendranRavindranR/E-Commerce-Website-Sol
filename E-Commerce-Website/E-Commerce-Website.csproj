@@ -19,6 +19,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Views\Customer\productListPage.cshtml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Remove="wwwroot\CategoryUploadsThumbnails\thumb_K Lokesh Rahul.jpg" />
     <Content Remove="wwwroot\CategoryUploadsThumbnails\thumb_Lokesh.jpg" />
     <Content Remove="wwwroot\CategoryUploadsThumbnails\thumb_Virat Kohli.jpg" />
@@ -31,6 +35,8 @@
     <Content Remove="wwwroot\customerWebsiteImages\product-thumb-2.png" />
     <Content Remove="wwwroot\customerWebsiteImages\s24.svg" />
     <Content Remove="wwwroot\Customer_Logo_Image\NoblQ_Logo.png" />
+    <Content Remove="wwwroot\ThumbnailProduct_images\thumb_K Lokesh Rahul.jpg" />
+    <Content Remove="wwwroot\ThumbnailProduct_images\thumb_Virat Kohli.jpg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -48,6 +54,7 @@
     <Folder Include="wwwroot\customer_image\" />
     <Folder Include="wwwroot\CategoryUploads\" />
     <Folder Include="wwwroot\CategoryUploadsThumbnails\" />
+    <Folder Include="wwwroot\ThumbnailProduct_images\" />
     <Folder Include="wwwroot\product_images\" />
   </ItemGroup>
 

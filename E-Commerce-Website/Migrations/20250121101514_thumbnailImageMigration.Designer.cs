@@ -3,6 +3,7 @@ using E_Commerce_Website.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace E_Commerce_Website.Migrations
 {
     [DbContext(typeof(myContext))]
-    partial class myContextModelSnapshot : ModelSnapshot
+    [Migration("20250121101514_thumbnailImageMigration")]
+    partial class thumbnailImageMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -199,10 +202,8 @@ namespace E_Commerce_Website.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("product_id"));
 
-                    b.Property<decimal?>("Rating")
-                        .HasColumnType("decimal(3,2)");
-
                     b.Property<string>("Thumbnail_Image")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("cat_id")
@@ -210,8 +211,7 @@ namespace E_Commerce_Website.Migrations
 
                     b.Property<string>("product_Description")
                         .IsRequired()
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("product_Image")
                         .IsRequired()
@@ -219,14 +219,11 @@ namespace E_Commerce_Website.Migrations
 
                     b.Property<string>("product_name")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal>("product_price")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("stock_quantity")
-                        .HasColumnType("int");
+                    b.Property<string>("product_price")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("product_id");
 

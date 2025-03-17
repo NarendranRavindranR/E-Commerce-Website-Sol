@@ -14,13 +14,13 @@
                     <span class="visually-hidden">Previous</span>
                 </button>
                 <div class="banner-blocks">
-                    
+
                     <div id="carouselExampleIndicators" class="carousel slide banner-ad block-1" data-bs-ride="carousel">
                         <div class="carousel-indicators">
                             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
                         </div>
-                        
+
                         <div class="carousel-inner">
                             <div class="carousel-item active">
                                 <div class="row banner-content p-5">
@@ -86,130 +86,20 @@
                 <div class="category-carousel swiper">
                     <div class="swiper-wrapper">
                         <!-- Add category items here -->
-                            @foreach (var category in Model)
-                            {
-                                <a href="#" class="nav-link category-item swiper-slide">
+                        @foreach (var category in Model)
+                        {
+                            <a href="@Url.Action("ProductListPage", "Customer", new { categoryId = category.category_id })" class="nav-link category-item swiper-slide">
                                 <img src="CategoryUploadsThumbnails/@category.Thumbnail_Image" alt="@category.category_name Thumbnail">
-                                    <h3 class="category-title">@category.category_name</h3>
-                                </a>
-                            }
-                        @* <a href="#" class="nav-link category-item swiper-slide">
-                            <img src="images/icon-vegetables-broccoli.png" alt="Category Thumbnail">
-                            <h3 class="category-title">Fruits & Veges</h3>
-                        </a>
-                        <a href="#" class="nav-link category-item swiper-slide">
-                            <img src="images/icon-bread-baguette.png" alt="Category Thumbnail">
-                            <h3 class="category-title">Breads & Sweets</h3>
-                        </a>
-                        <a href="#" class="nav-link category-item swiper-slide">
-                            <img src="images/icon-soft-drinks-bottle.png" alt="Category Thumbnail">
-                            <h3 class="category-title">Fruits & Veges</h3>
-                        </a>
-                        <a href="#" class="nav-link category-item swiper-slide">
-                            <img src="images/icon-wine-glass-bottle.png" alt="Category Thumbnail">
-                            <h3 class="category-title">Fruits & Veges</h3>
-                        </a>
-                        <a href="#" class="nav-link category-item swiper-slide">
-                            <img src="images/icon-animal-products-drumsticks.png" alt="Category Thumbnail">
-                            <h3 class="category-title">Fruits & Veges</h3>
-                        </a>
-                        <a href="#" class="nav-link category-item swiper-slide">
-                            <img src="images/icon-bread-herb-flour.png" alt="Category Thumbnail">
-                            <h3 class="category-title">Fruits & Veges</h3>
-                        </a>
-                        <a href="#" class="nav-link category-item swiper-slide">
-                            <img src="images/icon-vegetables-broccoli.png" alt="Category Thumbnail">
-                            <h3 class="category-title">Fruits & Veges</h3>
-                        </a>
-                        <a href="#" class="nav-link category-item swiper-slide">
-                            <img src="images/icon-vegetables-broccoli.png" alt="Category Thumbnail">
-                            <h3 class="category-title">Fruits & Veges</h3>
-                        </a>
-                        <a href="#" class="nav-link category-item swiper-slide">
-                            <img src="images/icon-vegetables-broccoli.png" alt="Category Thumbnail">
-                            <h3 class="category-title">Fruits & Veges</h3>
-                        </a>
-                        <a href="#" class="nav-link category-item swiper-slide">
-                            <img src="images/icon-vegetables-broccoli.png" alt="Category Thumbnail">
-                            <h3 class="category-title">Fruits & Veges</h3>
-                        </a>
-                        <a href="#" class="nav-link category-item swiper-slide">
-                            <img src="images/icon-vegetables-broccoli.png" alt="Category Thumbnail">
-                            <h3 class="category-title">Fruits & Veges</h3>
-                        </a>
-                        <a href="#" class="nav-link category-item swiper-slide">
-                            <img src="images/icon-vegetables-broccoli.png" alt="Category Thumbnail">
-                            <h3 class="category-title">Fruits & Veges</h3>
-                        </a> *@
-
+                                <h3 class="category-title">@category.category_name</h3>
+                            </a>
+                        }
                     </div>
                 </div>
-                
             </div>
         </div>
-
     </div>
 </section>
 
-<!--<div class="row">
-    <div class="col-md-12">
-
-        <div class="category-carousel swiper">
-            <div class="swiper-wrapper">
-                <a href="index.html" class="nav-link category-item swiper-slide">
-                    <img src="images/icon-vegetables-broccoli.png" alt="Category Thumbnail">
-                    <h3 class="category-title">Fruits & Veges</h3>
-                </a>
-                <a href="index.html" class="nav-link category-item swiper-slide">
-                    <img src="images/icon-bread-baguette.png" alt="Category Thumbnail">
-                    <h3 class="category-title">Breads & Sweets</h3>
-                </a>
-                <a href="index.html" class="nav-link category-item swiper-slide">
-                    <img src="images/icon-soft-drinks-bottle.png" alt="Category Thumbnail">
-                    <h3 class="category-title">Fruits & Veges</h3>
-                </a>
-                <a href="index.html" class="nav-link category-item swiper-slide">
-                    <img src="images/icon-wine-glass-bottle.png" alt="Category Thumbnail">
-                    <h3 class="category-title">Fruits & Veges</h3>
-                </a>
-                <a href="index.html" class="nav-link category-item swiper-slide">
-                    <img src="images/icon-animal-products-drumsticks.png" alt="Category Thumbnail">
-                    <h3 class="category-title">Fruits & Veges</h3>
-                </a>
-                <a href="index.html" class="nav-link category-item swiper-slide">
-                    <img src="images/icon-bread-herb-flour.png" alt="Category Thumbnail">
-                    <h3 class="category-title">Fruits & Veges</h3>
-                </a>
-                <a href="index.html" class="nav-link category-item swiper-slide">
-                    <img src="images/icon-vegetables-broccoli.png" alt="Category Thumbnail">
-                    <h3 class="category-title">Fruits & Veges</h3>
-                </a>
-                <a href="index.html" class="nav-link category-item swiper-slide">
-                    <img src="images/icon-vegetables-broccoli.png" alt="Category Thumbnail">
-                    <h3 class="category-title">Fruits & Veges</h3>
-                </a>
-                <a href="index.html" class="nav-link category-item swiper-slide">
-                    <img src="images/icon-vegetables-broccoli.png" alt="Category Thumbnail">
-                    <h3 class="category-title">Fruits & Veges</h3>
-                </a>
-                <a href="index.html" class="nav-link category-item swiper-slide">
-                    <img src="images/icon-vegetables-broccoli.png" alt="Category Thumbnail">
-                    <h3 class="category-title">Fruits & Veges</h3>
-                </a>
-                <a href="index.html" class="nav-link category-item swiper-slide">
-                    <img src="images/icon-vegetables-broccoli.png" alt="Category Thumbnail">
-                    <h3 class="category-title">Fruits & Veges</h3>
-                </a>
-                <a href="index.html" class="nav-link category-item swiper-slide">
-                    <img src="images/icon-vegetables-broccoli.png" alt="Category Thumbnail">
-                    <h3 class="category-title">Fruits & Veges</h3>
-                </a>
-
-            </div>
-        </div>
-
-    </div>
-</div>-->
 
 
 

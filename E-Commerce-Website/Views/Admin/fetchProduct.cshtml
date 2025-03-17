@@ -16,7 +16,10 @@
                 <tr>
                     <th>Product Name</th>
                     <th>Product Price</th>
+                    <th>Rating</th>
+                    <th>Stock Quantity</th>
                     <th>Product Image</th>
+                    <th>Product Thumbnail Images</th>
                     <th>Options</th>
                 </tr>
             </thead>
@@ -26,7 +29,10 @@
                     <tr>
                         <td>@prod.product_name</td>
                         <td>@prod.product_price</td>
+                        <td>@prod.Rating</td>
+                        <td>@prod.stock_quantity</td>
                         <td> <img src="@("~/product_images/"+prod.product_Image)" asp-append-version="true" width="40px" height="40px" /></td>
+                        <td> <img src="@("~/ThumbnailProduct_images/"+prod.Thumbnail_Image)" asp-append-version="true" width="40px" height="40px" /></td>
                         <td>
                             <div class="btn-group" role="group">
                                 <a href="@Url.Action("updateProduct","Admin",new{id=prod.product_id})" data-bs-toggle="tooltip" title="Edit Product"><i class="fas fa-pen custom-edit-icon"></i></a>

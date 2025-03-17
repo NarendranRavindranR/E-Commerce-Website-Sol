@@ -306,13 +306,21 @@ namespace E_Commerce_Website.Controllers
         [HttpPost]
         public IActionResult addProduct(Product prod,IFormFile product_Image)
         {
-            String imageName  = Path.GetFileName(product_Image.FileName);   
-            String ImagePath = Path.Combine(_env.WebRootPath, "product_images", imageName);
-            using (FileStream fs = new FileStream(ImagePath, FileMode.Create))
+            if (product_Image != null)
             {
-                product_Image.CopyTo(fs);
+                String imageName = Path.GetFileName(product_Image.FileName);
+                String ImagePath = Path.Combine(_env.WebRootPath, "product_images", imageName);
+                using (FileStream fs = new FileStream(ImagePath, FileMode.Create))
+                {
+                    product_Image.CopyTo(fs);
+                }
+                // Generate thumbnail
+                string thumbnailPath = Path.Combine(_env.WebRootPath, "ThumbnailProduct_images", "thumb_" + product_Image.FileName);
+                prod.Thumbnail_Image = GenerateThumbnail(ImagePath, thumbnailPath);
+                prod.product_Image = product_Image.FileName;
+
             }
-            prod.product_Image = imageName;
+
             _context.tbl_product.Add(prod);
             _context.SaveChanges();
             return RedirectToAction("fetchProduct");
@@ -329,18 +337,56 @@ namespace E_Commerce_Website.Controllers
         [HttpPost]
         public IActionResult updateProduct(Product prod)
         {
-            _context.tbl_product.Update(prod);
-            _context.SaveChanges();
+            // Fetch the existing product from the database
+            var existingProduct = _context.tbl_product.Find(prod.product_id);
+
+            if (existingProduct != null)
+            {
+                // Retain the existing Thumbnail_Image if not explicitly modified
+                if (string.IsNullOrEmpty(prod.Thumbnail_Image))
+                {
+                    prod.Thumbnail_Image = existingProduct.Thumbnail_Image;
+                }
+                /* _context.tbl_product.Update(prod);
+                 _context.SaveChanges();*/
+
+                // Update only the necessary fields
+                existingProduct.product_name = prod.product_name;
+                existingProduct.Rating = prod.Rating;
+                existingProduct.product_price = prod.product_price;
+                existingProduct.product_Description = prod.product_Description;
+                existingProduct.cat_id = prod.cat_id;
+                existingProduct.Thumbnail_Image = prod.Thumbnail_Image;
+                existingProduct.stock_quantity = prod.stock_quantity;
+
+                // Save changes
+                _context.tbl_product.Update(existingProduct);
+                _context.SaveChanges();
+            }
             return RedirectToAction("fetchProduct");
         }
 
         [HttpPost]
         public IActionResult ChangeProductImage(IFormFile product_Image, Product product)
         {
-            String ImagePath = Path.Combine(_env.WebRootPath, "product_images", product_Image.FileName);
-            FileStream fs = new FileStream(ImagePath, FileMode.Create);
-            product_Image.CopyTo(fs);
-            product.product_Image = product_Image.FileName;
+            /*            String ImagePath = Path.Combine(_env.WebRootPath, "product_images", product_Image.FileName);
+                        FileStream fs = new FileStream(ImagePath, FileMode.Create);
+                        product_Image.CopyTo(fs);
+                        product.product_Image = product_Image.FileName;*/
+            if (product_Image != null)
+            {
+                String imageName = Path.GetFileName(product_Image.FileName);
+                String ImagePath = Path.Combine(_env.WebRootPath, "product_images", imageName);
+                using (FileStream fs = new FileStream(ImagePath, FileMode.Create))
+                {
+                    product_Image.CopyTo(fs);
+                }
+                // Generate thumbnail
+                string thumbnailPath = Path.Combine(_env.WebRootPath, "ThumbnailProduct_images", "thumb_" + product_Image.FileName);
+                product.Thumbnail_Image = GenerateThumbnail(ImagePath, thumbnailPath);
+                product.product_Image = product_Image.FileName;
+
+            }
             _context.tbl_product.Update(product);
             _context.SaveChanges();
             return RedirectToAction("fetchProduct");

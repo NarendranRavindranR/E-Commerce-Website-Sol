@@ -24,6 +24,17 @@
                        placeholder="Enter Product Name"
                        required />
             </div>
+            <!-- Product Rating -->
+            <div class="update-product-form-group mb-3">
+                <label for="Rating" class="update-product-label fw-bold">Rating</label>
+                <input class="update-product-input w-100"
+                       type="text"
+                       id="Rating"
+                       name="Rating"
+                       value="@Model.Rating"
+                       placeholder="Enter Rating"
+                       required />
+            </div>
 
             <!-- Product Price -->
             <div class="update-product-form-group mb-3">
@@ -34,6 +45,18 @@
                        name="product_price"
                        value="@Model.product_price"
                        placeholder="Enter Product Price"
+                       required />
+            </div>
+
+            <!-- Stock Quantity -->
+            <div class="update-product-form-group mb-3">
+                <label for="stock_quantity" class="update-product-label fw-bold">Stock Quantity</label>
+                <input class="update-product-input w-100"
+                       type="number"
+                       id="stock_quantity"
+                       name="stock_quantity"
+                       value="@Model.stock_quantity"
+                       placeholder="Stock Quantity"
                        required />
             </div>
 
@@ -72,6 +95,7 @@
             <input type="hidden" name="product_id" value="@Model.product_id" />
             <input type="hidden" name="product_name" value="@Model.product_name" />
             <input type="hidden" name="product_price" value="@Model.product_price" />
+            <input type="hidden" name="Rating" value="@Model.Rating" />
             <input type="hidden" name="product_Description" value="@Model.product_Description" />
             <input type="hidden" name="cat_id" value="@Model.cat_id" class="form-control my-3" />
             <div class="form-group text-center mb-3">
